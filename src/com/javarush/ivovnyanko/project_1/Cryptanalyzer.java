@@ -12,8 +12,8 @@ import java.util.stream.Collectors;
  */
 public class Cryptanalyzer {
     // for the methode showStartMessageProgramAndChoiceUser()
-    private static final String PROGRAM_MESSAGE1 = "Please, select program mode. Decrypt or encrypt a file";
-    private static final String PROGRAM_MESSAGE2 = "For decrypt - enter '1', for encrypt - enter '2', for Brute force - 3";
+    private static final String SELECT_PROGRAM_MODE = "Please, select program mode. Decrypt or encrypt a file";
+    private static final String PROGRAM_MODE_SELECTION_OPTIONS = "For decrypt - enter '1', for encrypt - enter '2', for Brute force - 3";
     private static final String CHOICE_IS = "Your choice is: ";
     private static final String WRONG_CHOICE = "You've made the wrong choice! Try again";
     private static final String WRONG_CHOICE_NOT_NUMBER = "You can only enter numbers! Try again";
@@ -44,14 +44,8 @@ public class Cryptanalyzer {
         boolean checkCorrectChoice = true; // checking if the selected mode is correct
 
         // show start text
-        try {
-            System.out.println(PROGRAM_MESSAGE1);
-            Thread.sleep(SLEEP_FOR_MESSAGE);
-            System.out.println(PROGRAM_MESSAGE2);
-            Thread.sleep(SLEEP_FOR_MESSAGE);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+            System.out.println(SELECT_PROGRAM_MODE);
+            System.out.println(PROGRAM_MODE_SELECTION_OPTIONS);
 
         // the user enters the path to the file and checks for the existence of the file
         while (checkCorrectChoice) {
@@ -68,7 +62,6 @@ public class Cryptanalyzer {
                 System.out.println(WRONG_CHOICE_NOT_NUMBER);
             }
         }
-        System.out.println(CORRECT_CHOICE);
         return result;
     }
 
@@ -121,7 +114,6 @@ public class Cryptanalyzer {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println(letters);
         return letters;
     }
 
@@ -142,6 +134,7 @@ public class Cryptanalyzer {
             filePathForRead = scanner.nextLine();
             textModeForWrongChoice = 1;
         } while (!new File(filePathForRead).exists());
+        System.out.println(CORRECT_CHOICE);
 
         return filePathForRead;
     }

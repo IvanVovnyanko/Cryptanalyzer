@@ -1,12 +1,12 @@
 package com.javarush.ivovnyanko.project_1;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
 
+/**
+ * The Map class is a helper class that provides a static map() method to create a list of characters
+ * used in encrypting and decrypting text
+ */
 public class Map {
-    // public static final Map INSTANCE = new Map ();
     private Map () {}
     public static ArrayList<Character> map () {
         ArrayList<Character> arrayList = new ArrayList(){{
